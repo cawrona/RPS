@@ -1,7 +1,5 @@
-moves = ['rock', 'paper', 'scissors'];
-
-// Random number generator function that returns a random number between 0 and 2.
 function computerPlay() {
+    moves = ['rock', 'paper', 'scissors']
     return moves[Math.floor(Math.random() * 3)]
 }
 
@@ -28,13 +26,30 @@ function playRound(playerSelection, computerSelection) {
         return 'You lose! Rock beats scissors';
     }
 }
+const result = document.querySelector('#result');
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerInput = prompt('Rock, paper, or scissors?');
-        let lowerCasePlayerInput = playerInput.toLowerCase();
-        console.log(playRound(lowerCasePlayerInput, computerPlay()));
-    }
-}
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => {
+    result.textContent = playRound('rock', computerPlay());
+});
 
-game();
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => {
+    result.textContent = playRound('paper', computerPlay());
+});
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => {
+    result.textContent = playRound('scissors', computerPlay());
+});
+
+
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         let playerInput = prompt('Rock, paper, or scissors?');
+//         let lowerCasePlayerInput = playerInput.toLowerCase();
+//         console.log(playRound(lowerCasePlayerInput, computerPlay()));
+//     }
+// }
+
+// game();
